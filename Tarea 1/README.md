@@ -26,7 +26,7 @@ Porque contiene consigo objetos, y cada clase debe tener como un nombre mas gene
 
 ===========================================
 
-### Explica el concepto de encapsulamiento, busca dos imágenes que te ayuden a describir el concepto, una que tenga algún sistema sin encapsulamiento y otra donde si lo tenga. Menciona por que es importante y que problemas puede evitar
+### Explica el concepto de encapsulamiento, busca dos imágenes que te ayuden a describir el concepto, una que tenga algún sistema sin encapsulamiento y otra donde si lo tenga. Menciona por que es importante vy que problemas puede evitar
 
 El encapsulamiento organiza los datos y garantiza la "seguridad" de los datos que contiene un objeto, estos pueden ser publicos, privados o protegidos.
 
