@@ -16,7 +16,7 @@ ___
 
 ## UML de la relación entre las clases Figura, Rectangulo y Circulo
 
-![UML](./Tarea3/uml.jpg)
+![UML](./Tarea 3/uml.jpg)
 
 ___
 
