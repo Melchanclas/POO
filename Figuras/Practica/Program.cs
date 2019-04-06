@@ -1,110 +1,119 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Figura2
+namespace Figuras
 {
-    class Vector2d
+    class Vector2D
     {
         public int x, y;
-        public Vector2d(int x, int y)
+        public Vector2D(int x, int y)
         {
-            this.x=x; this.y=y;
+            this.x = x; this.y = y;
         }
         public override string ToString()
         {
-            return String.Format("{0},{1}", x, y);
-        }
+            return string.Format("{0}, {1}", x, y);
+        } 
     }
-    abstract class Figura
-    {
-        public Vector2d position;
-        public string fill ,border;
 
-        //Constructor por defecto 
-        public Figura():this( new Vector2d(100, 100))
+    /* class Color 
+        {
+        public enum Name { red, blue, white, green, black, none }
+
+        public int R, G, B, I;
+        public Color.Name colorName;
+        public Color(int r, int g, int b, int i = 1)
+        {
+            R = r; G = g; B = b; I = i;
+        }
+        public Color(Color.Name name)
         {
         
         }
-        //constructor de figura
-        public Figura(Vector2d pos)
+        }*/
+  
+    class Figura 
+    {
+        public Vector2D position;
+        public string border;
+        public string fill;
+        
+        public Figura():this(new Vector2D(100,100))
+        {
+
+        }
+        public Figura(Vector2D pos)
         {
             position = pos;
-            fill = "white";
-            border = "black";
+            fill = "Rojo";
+            border = "Black";
         }
+        public virtual void Dibuja()
+        {
 
-        public abstract void Dibuja();
+        }
     }
-
+      
     class Circulo : Figura
     {
      private int radio;
-     public Circulo(Vector2d pos, int radio):base(pos)
+     public Circulo(Vector2D pos, int radio) : base (pos)
      {
          this.radio = radio;
-     }
-     public Circulo ():base()
+     }   
+     public Circulo() : base()
      {
          this.radio = 10;
      }
-
-     public override void Dibuja() 
+     public override void Dibuja()
      {
          Console.WriteLine("Se dibuja un circulo en {0} de color {1}", position, fill);
      }
     }
- 
+
     class Rectangulo : Figura
     {
-     
-     public Rectangulo(Vector2d pos):base(pos)
+     public Rectangulo(Vector2D pos) : base (pos)
      {
-         
-     }
-     public Rectangulo ():base()
-     {
-        
-     }
 
-     public override void Dibuja() 
+     }
+     public Rectangulo() : base()
      {
-         Console.WriteLine("Se dibuja un Rectangulo en {0} de color {1}", position, border);
+
+     }
+     public new void Dibuja()
+     {
+         Console.WriteLine("Se dibuja un Rectangulo en {0} de color {1}", position, fill);
      }
     }
-
-class Triangulo : Figura
+    class Cuadrado : Figura
     {
-     
-     public Triangulo(Vector2d pos):base(pos)
-     {
-         
-     }
-     public Triangulo ():base()
-     {
-        
-     }
+        public Cuadrado(Vector2D pos) : base(pos)
+        {  
 
-     public override void Dibuja() 
-     {
-         Console.WriteLine("Se dibuja un Triangulo en {0} de color {1}", position, fill);
-     }
+        }
+        public Cuadrado() : base()
+        {
+
+        }
+        public new void Dibuja()
+        {
+            Console.WriteLine("Se dibuja un Cuadrado en {0} de color {1}", position, fill);
+        }
 
     }
-
-    // 11:07 PM, profesor, me rindo, no se como hacer para sacar el area :c Necesito comer algo :c 
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-
             List<Figura> figuras = new List<Figura>();
-            figuras.Add(new Circulo());
-            figuras.Add(new Rectangulo(new Vector2d(200,200)));
-            figuras.Add(new Triangulo(new Vector2d(400,400)));
+            figuras.Add (new Circulo());
+            figuras.Add (new Rectangulo(new Vector2D(200,200)));
+            figuras.Add (new Cuadrado(new Vector2D(300,300)));
             foreach(Figura f in figuras)
             {
-            f.Dibuja();
+                f.Dibuja();
             }
         }
     }

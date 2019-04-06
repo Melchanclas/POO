@@ -34,9 +34,10 @@ ___
 
 ## Programa Figuras:
 
-    using System;
-    using System.Collections.Generic;
-    namespace FiguraS
+        using System;
+        using System.Collections.Generic;
+
+    namespace Figuras
     {
         class Vector2D
         {
@@ -50,7 +51,8 @@ ___
                 return string.Format("{0}, {1}", x, y);
             } 
         }
-        class Color 
+
+        /* class Color 
             {
             public enum Name { red, blue, white, green, black, none }
 
@@ -62,18 +64,19 @@ ___
             }
             public Color(Color.Name name)
             {
-                
+        
             }
-            }
-
-        abstract class Figura 
+            }*/
+  
+        class Figura 
         {
             public Vector2D position;
             public string border;
             public string fill;
-
-            public Figura() : this(new Vector2D(100,100))
+        
+            public Figura():this(new Vector2D(100,100))
             {
+
             }
             public Figura(Vector2D pos)
             {
@@ -81,48 +84,56 @@ ___
                 fill = "Rojo";
                 border = "Black";
             }
-            public virtual void Dibuja();
+            public virtual void Dibuja()
+            {
 
+            }
         }
-
+      
         class Circulo : Figura
         {
         private int radio;
         public Circulo(Vector2D pos, int radio) : base (pos)
         {
-             this.radio = radio;
-         }   
+            this.radio = radio;
+        }   
         public Circulo() : base()
         {
             this.radio = 10;
         }
         public override void Dibuja()
         {
-            Console.WriteLine("Se dibuja un circulo en {0} de color {1}", position, fill);
+             Console.WriteLine("Se dibuja un circulo en {0} de color {1}", position, fill);
         }
         }
+
         class Rectangulo : Figura
         {
         public Rectangulo(Vector2D pos) : base (pos)
         {
+
         }
         public Rectangulo() : base()
         {
+
         }
-        public override void Dibuja()
+        public new void Dibuja()
         {
             Console.WriteLine("Se dibuja un Rectangulo en {0} de color {1}", position, fill);
-        }    
         }
+        }
+
         class Cuadrado : Figura
         {
             public Cuadrado(Vector2D pos) : base(pos)
             {  
+
             }
             public Cuadrado() : base()
             {
+
             }
-            public override void Dibuja()
+            public new void Dibuja()
             {
                 Console.WriteLine("Se dibuja un Cuadrado en {0} de color {1}", position, fill);
             }
@@ -142,5 +153,5 @@ ___
                     f.Dibuja();
                 }
             }
-        }   
+        }
     }
